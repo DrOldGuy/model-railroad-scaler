@@ -1,0 +1,3 @@
+# Change the server port as needed.
+server:
+  port: 8080

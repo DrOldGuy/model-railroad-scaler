@@ -1,0 +1,82 @@
+:root {
+  --outline-color: #10a1f9;
+  --form-outline-color: #000088;
+  --error-color: red;
+}
+
+* {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11pt;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 10px;
+}
+
+h1 {
+  font-size: 22pt;
+  font-weight: normal;
+  color: var(--outline-color);
+  text-align: left;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2em auto 0;
+}
+
+.content {
+  display: grid;  
+  grid-template-columns: repeat(3, auto);
+  justify-content: center;
+  grid-gap: 10px 25px;
+  border: 1px solid var(--form-outline-color);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.measurement, #error-message {
+  grid-column-start: span 3;
+}
+
+.prompt-field {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px 5px;
+}
+
+.prompt-field .message, #error-message {
+  display: none;
+  font-size: smaller;
+  color: var(--error-color);
+}
+
+.prompt-field input.error {
+  border-color: var(--error-color);
+}
+
+input.error:focus {
+  border-color: transparent;
+}
+
+select > option {
+  font-size: 10pt;
+}
+
+input, select {
+  font-size: 10pt;
+  border: 1px solid var(--outline-color);
+  border-radius: 5px;
+  padding: 5px; 
+}
+
+input {
+  width: 5em;
+  margin: auto 0;
+}

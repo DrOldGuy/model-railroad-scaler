@@ -60,7 +60,7 @@ var Main = {
       dataType: "json",
       method: "POST"
     })
-      .done((data) => {
+    .done((data) => {
         Main._displayData.call($form, data);
       })
     .fail((xhr, _textStatus, _errorThrown) => {
@@ -96,11 +96,8 @@ var Main = {
   _displayData: function(data) {
     const $form = this;
     const type = $form.find("select[name=type]").val();
-    const $outputType = $("#output-type");
     const dimensions = type == "model" ? data.fullsizeDimensions : data.modelDimensions;
     
-    console.log("outputType:", $outputType);
-
     if (dimensions.length) {
       $("#output-length").val(dimensions.length.value.toFixed(2));
     }

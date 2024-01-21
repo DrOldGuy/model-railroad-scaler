@@ -1,0 +1,10 @@
+1.0.2 21-Jan-2024
+  * [Bug] Removed JavaScript debugging. Slight formatting fix.
+
+1.0.1 21-Jan-2024
+  * [Bug] Corrected JavaScript after refactoring JSON input/output from "prototype" to "fullsize".
+  * [Enhance] Added favicon.ico to src/main/resources/public
+  * [Bug] Changed text in index.html from "prototype" to "full size".
+
+1.0.0 20-Jan-2024
+  * Initial import to repo

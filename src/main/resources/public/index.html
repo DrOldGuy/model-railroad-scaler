@@ -16,21 +16,21 @@
 <body>
   <h1>Model Railroad Scaler</h1>
   <p>
-    The model railroad scaler converts between prototype (i.e., &ldquo;the real thing&rdquo;) 
+    The model railroad scaler converts between full size (i.e., &ldquo;prototype&rdquo;) 
     dimensions and model dimensions. So, for example, a 40 foot long boxcar is 3 inches long in 
-    N scale (1:160). The prototype dimension is 40 feet and the model dimension is 3 inches. 
-    Likewise, An HO scale (1:87.1) model with a length of 6.2 inches works out to a prototype 
+    N scale (1:160). The full size dimension is 40 feet and the model dimension is 3 inches. 
+    Likewise, An HO scale (1:87.1) model with a length of 6.2 inches works out to a full size 
     length of 45 feet.
   </p>
   <p>
-    This application lets you convert from model to prototype dimensions and vice versa. This is
+    This application lets you convert from model to full size dimensions and vice versa. This is
     useful for track and layout planning when, for example, you wish to know how much room to 
     allocate on your layout for a certain size structure.
   </p>
   <p>
     In the fields below, enter the scale (N, HO, O, etc.) to use for the calculations and the output 
-    measurement (feet, inches, etc.). Also, enter whether you are entering prototype dimensions or
-    model dimensions. Then enter one or more length, width or height measurements. 
+    measurement (feet, inches, etc.). Also, enter whether you are entering full size dimensions or
+    model dimensions. Then enter one or more length, width or height measurement. 
   </p>
 
   <form id="scaler">
@@ -55,7 +55,7 @@
           <div>Input:</div>
           <div>
             <select name="type" size="1">
-              <option value="prototype" selected>Prototype</option>
+              <option value="fullsize" selected>Full Size</option>
               <option value="model">Model</option>
             </select>
           </div>

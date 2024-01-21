@@ -36,6 +36,8 @@ var Main = {
     const $form = this;
 
     $("#error-message").hide();
+    
+    Main._updateOutputText.call($form);
 
     if (!Main._lengthEntered) {
       return;
@@ -50,7 +52,7 @@ var Main = {
 
     /*
      * Make the AJAX call to fill in the missing fields in the data object. For example, if
-     * prototype dimensions are supplied by the user, model dimensions are returned, and vice versa.
+     * full size dimensions are supplied by the user, model dimensions are returned, and vice versa.
      */
     $.ajax(Main.POST_URL, {
       contentType: "application/json",
@@ -68,17 +70,16 @@ var Main = {
   },
 
   /**
-   * Display the data returned by the server.
-   */
-  _displayData: function(data) {
+   * Update the output type ("model"|"fullsize") and the output measurement
+   */  
+  _updateOutputText: function() {
     const $form = this;
     const type = $form.find("select[name=type]").val();
     const $outputType = $("#output-type");
     const output = $form.find("select[name=outputMeasurement]").val();
     const $outputMeasurement = $("#outputMeasurement");
-    const dimensions = type == "model" ? data.prototypeDimensions : data.modelDimensions;
 
-    $outputType.text(type == "model" ? "Prototype" : "Model");
+    $outputType.text(type == "model" ? "Full size" : "Model");
 
     switch (output) {
       case "CM": $outputMeasurement.text("centimeters."); break;
@@ -86,6 +87,19 @@ var Main = {
       case "INCH": $outputMeasurement.text("inches."); break;
       case "MM": $outputMeasurement.text("millimeters."); break;
     }
+
+  },
+
+  /**
+   * Display the data returned by the server.
+   */
+  _displayData: function(data) {
+    const $form = this;
+    const type = $form.find("select[name=type]").val();
+    const $outputType = $("#output-type");
+    const dimensions = type == "model" ? data.fullsizeDimensions : data.modelDimensions;
+    
+    console.log("outputType:", $outputType);
 
     if (dimensions.length) {
       $("#output-length").val(dimensions.length.value.toFixed(2));
@@ -150,8 +164,8 @@ var Main = {
 
     const type = $form.find("select[name=type]").val();
 
-    if (type == "prototype") {
-      data.prototypeDimensions = dimensions;
+    if (type == "fullsize") {
+      data.fullsizeDimensions = dimensions;
     }
     else {
       data.modelDimensions = dimensions;
